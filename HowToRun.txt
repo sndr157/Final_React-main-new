@@ -1,0 +1,5 @@
+1- Run Json server using the following coomand
+json-server --watch db-1692783611226.json --port 3000
+
+2- Run react frontend app using following command
+npm run dev
