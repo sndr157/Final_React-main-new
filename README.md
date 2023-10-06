@@ -1,20 +1,3 @@
-# ActiveLife EventApp
-
-This is a React application that allows users to create and manage events.
-
-## Main Features
-
-- Create new events, edit events, and delete events. 
-- View a list of all created events.
-- 
-## Link To Title
-
-Note that the title of the application also serves as a link, allowing users to navigate back to the main page at any time.
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
 # ActiveLife EventApp 🎉
 
 ActiveLife EventApp is a dynamic React application that empowers users to create, manage, and enjoy events seamlessly.
