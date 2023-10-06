@@ -9,28 +9,28 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "./logos.png";
+import logo from "./allog.png";
 
 export const Navigation = () => {
   const [events, setEvents] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [clicked,setClicked] = useState(true);
-  let [filteredEvents,setFilteredEvents] = useState([]);
+  const [clicked, setClicked] = useState(true);
+  let [filteredEvents, setFilteredEvents] = useState([]);
 
   useEffect(() => {
     fetchEvents();
-    setFilteredEvents(events.filter(
-      (event) =>
-        event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        event.description.toLowerCase().includes(searchQuery.toLowerCase())
-    ))
-  
+    setFilteredEvents(
+      events.filter(
+        (event) =>
+          event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          event.description.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    );
   }, [clicked]);
 
-  const fetchLatest=()=>{
+  const fetchLatest = () => {
     setClicked(!clicked);
-  
-  }
+  };
 
   const fetchEvents = async () => {
     try {
@@ -76,13 +76,14 @@ export const Navigation = () => {
           >
             <Heading
               color="white"
-              size="xl"
+              size="3xl"
               fontWeight="medium"
               mt={{ base: 2, md: 0 }}
               textAlign={{ base: "center", md: "left" }}
+              textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
               onClick={fetchLatest}
             >
-              ActiveLife EventApp
+              EventApp
             </Heading>
           </Link>
         </Flex>
