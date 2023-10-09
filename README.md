@@ -62,7 +62,7 @@ A big thank you to my mentor Mark, that guide me to make ActiveLife EventApp awe
 
 Enjoy my ActiveLife EventApp! 🚀🎉
 
-## Images Speak Louder then Words 
+## A picture is worth a thousand words 
 
 ![image](https://github.com/sndr157/Final_React_Fixed/assets/127830026/efc97918-5f46-4ee1-bae6-c36dc3dc26d7)
 
