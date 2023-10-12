@@ -157,7 +157,6 @@ export const EventPage = () => {
         isClosable: true,
       });
 
-      
       window.location.href = "http://localhost:5173/";
       dispatch({ type: "CLOSE_DELETE_MODAL" });
     } catch (error) {
@@ -175,13 +174,11 @@ export const EventPage = () => {
       <Image src={event.image} alt="Event" maxW="400px" borderRadius="4px" />
       <Heading color="white">{event.title}</Heading>
       <Text color="white">{event.description}</Text>
-      <Text color="white">
-        Location: {event.location}
-      </Text>
+      <Text color="white">Location: {event.location}</Text>
       <Text color="white">
         Start Time: {new Date(event.startTime).toLocaleString()}
       </Text>
-      
+
       <Text color="white">
         End Time: {new Date(event.endTime).toLocaleString()}
       </Text>
@@ -207,6 +204,7 @@ export const EventPage = () => {
           <FormControl>
             <FormLabel>Title</FormLabel>
             <Input
+              color="black"
               value={editedEvent.title}
               onChange={(e) =>
                 dispatch({
@@ -219,6 +217,7 @@ export const EventPage = () => {
           <FormControl>
             <FormLabel>Description</FormLabel>
             <Input
+              color="black"
               value={editedEvent.description}
               onChange={(e) =>
                 dispatch({
@@ -231,6 +230,7 @@ export const EventPage = () => {
           <FormControl>
             <FormLabel>Time</FormLabel>
             <Input
+              color="black"
               value={editedEvent.startTime}
               onChange={(e) =>
                 dispatch({
@@ -239,7 +239,10 @@ export const EventPage = () => {
                 })
               }
             />
+            <br />
+            <br />
             <Input
+              color="black"
               value={editedEvent.endTime}
               onChange={(e) =>
                 dispatch({

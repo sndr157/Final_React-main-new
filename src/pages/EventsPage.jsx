@@ -223,48 +223,62 @@ export const EventsPage = () => {
             borderRadius="lg"
             overflow="hidden"
             m={4}
-            w="300px"
             bg="white"
             boxShadow="lg"
-            style={{border:"2px solid #34a4a0"}}
-            
+            style={{
+              border: "2px solid #34a4a0",
+              boxShadow: "30px rgb(37, 150, 190)",
+            }}
           >
             <Link to={`/event/${event.id}`}>
-              <Image style={{height:"50%", width:"100%", objectFit:"cover"}} src={event.image} alt={event.title} />
-              <Box p="6">
-                <Box d="flex" alignItems="baseline">
-                  {getCategoryName(event.categoryIds, categories).map(
-                    (name) => (
-                      <Badge borderRadius="full" px="2" colorScheme="teal">
-                        {name}
-                      </Badge>
-                    )
-                  )}
-                </Box>
-                <Box
-                  mt="1"
-                  fontWeight="semibold"
-                  as="h4"
-                  lineHeight="tight"
-                  isTruncated
-                  color="teal.600"
-                >
-                  {event.title}
-                </Box>
+              <Image
+                style={{ height: "50%", width: "100%", objectFit: "cover" }}
+                src={event.image}
+                alt={event.title}
+              />
+            </Link>
+            <Box p="3">
+              <Box d="flex" alignItems="baseline">
+                {getCategoryName(event.categoryIds, categories).map((name) => (
+                  <Badge
+                    borderRadius="full"
+                    px="2"
+                    colorScheme="teal"
+                    p={1}
+                    m={1}
+                  >
+                    {name}
+                  </Badge>
+                ))}
+              </Box>
+              <Box
+                mt="2"
+                fontWeight="bold"
+                as="h4"
+                lineHeight="tight"
+                isTruncated
+                color="teal.600"
+                _hover={{ textDecoration: "underline" }}
+              >
+                <Link to={`/event/${event.id}`}>{event.title}</Link>
+              </Box>
 
-                <Box d="flex-row" color="gray.600">
-                      <div>Location: {event.location}</div>
-                      <div>Start Time : {new Date(event.startTime).toLocaleString()}</div>
-                      <div>End Time : {new Date(event.endTime).toLocaleString()}</div>
-                </Box>
+              <Box d="flex-row" color="gray.600" fontWeight="bold">
+                <div style={{ padding: "2px" }}>Location: {event.location}</div>
+                <div style={{ padding: "2px" }}>
+                  Start Time : {new Date(event.startTime).toLocaleString()}
+                </div>
+                <div style={{ padding: "2px" }}>
+                  End Time : {new Date(event.endTime).toLocaleString()}
+                </div>
+              </Box>
 
-                <Box d="flex" mt="2" alignItems="center">
-                  <Box as="span" ml="2" fontSize="sm">
-                    Attendees {event.attendees}
-                  </Box>
+              <Box d="flex" mt="2" alignItems="center">
+                <Box as="span" ml="2" fontSize="sm" fontWeight="bolder">
+                  Attendees {event.attendees}
                 </Box>
               </Box>
-            </Link>
+            </Box>
           </Box>
         ))}
       </Flex>

@@ -193,7 +193,6 @@ export const AddEvent = () => {
             name="startTime"
             value={formData.startTime}
             onChange={handleInputChange}
-            
           />
           {formErrors.startTime && (
             <Text color="red" fontSize="sm">
@@ -217,7 +216,12 @@ export const AddEvent = () => {
         </FormControl>
         <FormControl mt={4}>
           <FormLabel color="teal.500">Categories</FormLabel>
-          <Select name="categoryIds" onChange={handleCategoryChange} h="20" multiple>
+          <Select
+            name="categoryIds"
+            onChange={handleCategoryChange}
+            h="20"
+            multiple
+          >
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
                 {category.name[0].toUpperCase() + category.name.slice(1)}
