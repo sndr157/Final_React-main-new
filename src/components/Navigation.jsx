@@ -7,10 +7,21 @@ import {
   Text,
   Flex,
   Image,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
 } from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link, NavLink } from "react-router-dom";
 import logo from "./allog.png";
-
+import { ClassNames } from "@emotion/react";
+{
+  /* Contact for web development at gamil : sameemTheDevTech@gmail.com 
+  At WhatsApp : +923480630652 
+  Thanks */
+}
 export const Navigation = () => {
   const [events, setEvents] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -59,63 +70,85 @@ export const Navigation = () => {
   };
 
   return (
-    <Box bgGradient="linear(to-r, teal.400, teal.500)" p={4}>
-      <Flex justify="space-between" align="center" wrap="wrap">
-        <Flex alignItems="center">
-          <Image
-            src={logo}
-            alt="Logo"
-            width={150}
-            height={150}
-            style={{ marginRight: "8px", padding: "8px" }}
-          />
-          <Link
-            to="/"
-            as={NavLink}
-            style={{ color: "white", textDecoration: "none" }}
-          >
-            <Heading
-              color="white"
-              size="3xl"
-              fontWeight="medium"
-              mt={{ base: 2, md: 0 }}
-              textAlign={{ base: "center", md: "left" }}
-              textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
-              onClick={fetchLatest}
+    <>
+      <Box bgGradient="linear(to-r, teal.400, teal.500)" p={4}>
+        <Flex justify="space-between" align="center" wrap="wrap">
+          <Flex alignItems="baseline">
+            <Image
+              src={logo}
+              alt="Logo"
+              width={100}
+              height={100}
+              style={{ marginRight: "8px" }}
+            />
+            <Link
+              to="/"
+              as={NavLink}
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontFamily: "Logirent Demo",
+                fontSize: "50px",
+                fontWeight: "bolder",
+                paddingBottom: "5px",
+              }}
             >
-              EventApp
-            </Heading>
-          </Link>
+              Ev<span style={{ color: "#a200ea" }}>ent</span> A
+              <span style={{ color: "#a200ea" }}>pp</span>
+            </Link>
+          </Flex>
+          <Box
+            textAlign={{ base: "center", md: "right" }}
+            maxWidth="600px"
+            mt={{ base: 4, md: 0 }}
+            ml={{ base: "auto", md: 4 }}
+          >
+            <Text color="white" fontStyle="italic" mt={{ base: 2, md: 0 }}>
+              {randomQuote()}
+            </Text>
+          </Box>
         </Flex>
-        <Box
-          textAlign={{ base: "center", md: "right" }}
-          maxWidth="600px"
-          mt={{ base: 4, md: 0 }}
-          ml={{ base: "auto", md: 4 }}
-        >
-          <Text color="white" fontStyle="italic" mt={{ base: 2, md: 0 }}>
-            {randomQuote()}
-          </Text>
-        </Box>
-      </Flex>
-      <Box bg="teal.400" p={4}>
-        <UnorderedList color="gray.500" listStyleType="none" padding={0} mt={4}>
-          {filteredEvents.map((event) => (
-            <ListItem key={event.id} my={2}>
-              <Link to={`/event/${event.id}`} as={NavLink}>
-                <Text
-                  fontSize="md"
-                  fontWeight="medium"
-                  color="teal.100"
-                  _hover={{ textDecoration: "underline" }}
+        <Box padding={0} mt={4} bg="teal.400">
+          <Menu p={4}>
+            <MenuButton
+              color="gray.100"
+              fontSize={20}
+              fontWeight="bold"
+              _hover={{ textDecoration: "underline" }}
+            >
+              <IconButton
+                icon={<HamburgerIcon />}
+                aria-label="Open Menu"
+                size="sm"
+                color="gray.500"
+                mr={2}
+                ml={5}
+              ></IconButton>
+              Events
+            </MenuButton>
+            <MenuList bg="teal.600">
+              {filteredEvents.map((event) => (
+                <MenuItem
+                  bg="teal.600"
+                  key={event.id}
+                  my={2}
+                  as={NavLink}
+                  to={`/event/${event.id}`}
                 >
-                  {event.title}
-                </Text>
-              </Link>
-            </ListItem>
-          ))}
-        </UnorderedList>
+                  <Text
+                    fontSize="md"
+                    fontWeight="medium"
+                    color="teal.100"
+                    _hover={{ textDecoration: "underline" }}
+                  >
+                    {event.title}
+                  </Text>
+                </MenuItem>
+              ))}
+            </MenuList>
+          </Menu>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
